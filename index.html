@@ -16,6 +16,33 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
     />
+    <style>
+      .category-alimentation {
+        --ion-color-primary: #4caf50;
+      }
+      .category-transport {
+        --ion-color-primary: #2196f3;
+      }
+      .category-loisirs {
+        --ion-color-primary: #ff9800;
+      }
+      .category-sante {
+        --ion-color-primary: #f44336;
+      }
+      .category-education {
+        --ion-color-primary: #9c27b0;
+      }
+      .category-autres {
+        --ion-color-primary: #607d8b;
+      }
+
+      .category-badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 12px;
+        margin-right: 10px;
+      }
+    </style>
   </head>
   <body>
     <ion-app>
@@ -34,9 +61,13 @@
                 </ion-card-header>
 
                 <ion-card-content>
-                  <ion-input label="Intitulé"></ion-input>
-                  <ion-input label="Montant" type="number"></ion-input>
-                  <ion-select label="Categorie">
+                  <ion-input id="intitule" label="Intitulé"></ion-input>
+                  <ion-input
+                    id="montant"
+                    label="Montant"
+                    type="number"
+                  ></ion-input>
+                  <ion-select id="categorie" label="Categorie">
                     <ion-select-option value="alimentation">
                       🍽️ Alimentation</ion-select-option
                     >
@@ -57,11 +88,11 @@
                     >
                   </ion-select>
                   <div class="ion-text-right ion-margin-vertical">
-                    <ion-button fill="outline" color="success"
+                    <ion-button id="btn-add" fill="outline" color="success"
                       >Ajouter
                       <ion-icon name="add-outline" slot="start"></ion-icon
                     ></ion-button>
-                    <ion-button fill="outline" color="danger"
+                    <ion-button id="btn-reset" fill="outline" color="danger"
                       ><ion-icon name="close-outline" slot="end"></ion-icon
                       >Reinitialiser</ion-button
                     >
@@ -69,18 +100,21 @@
                 </ion-card-content>
               </ion-card>
 
-              <ion-list class="ion-margin-vertical">
+              <ion-list id="liste-dep" class="ion-margin-vertical">
                 <ion-item>
                   <ion-badge slot="start">💼 Aucune dépense</ion-badge>
                   <ion-label>Aucune dépense enregistrée</ion-label>
                 </ion-item>
               </ion-list>
 
-              <strong>Total des dépenses : <span> 0 $ </span></strong>
+              <strong
+                >Total des dépenses : <span id="total-dep"> 0 $ </span></strong
+              >
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-content>
     </ion-app>
+    <script src="script.js"></script>
   </body>
 </html>
